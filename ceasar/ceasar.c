@@ -77,7 +77,7 @@ void encryptMenu()
     wprintf(L"--------Ended Encryption------\n");
     wprintf(L"\n");
 }
-
+ 
 void decryptMenu()
 {
     wprintf(L"\n");
