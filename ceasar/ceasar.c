@@ -71,13 +71,17 @@ void encryptMenu()
     int shiftValue;
     scanf("%d", &shiftValue);
     clearInputBuffer();
-    wprintf(L"Encrypted message: %ls\n", encrypt(message, shiftValue));
+    wchar_t* encryptedMessage = encrypt(message, shiftValue);
+    if (encryptedMessage) {
+        wprintf(L"Encrypted message: %ls\n", encryptedMessage);
+        free(encryptedMessage); // Free the allocated memory
+    }
 
     wprintf(L"\n");
     wprintf(L"--------Ended Encryption------\n");
     wprintf(L"\n");
 }
- 
+
 void decryptMenu()
 {
     wprintf(L"\n");
@@ -97,7 +101,11 @@ void decryptMenu()
     int shiftValue;
     scanf("%d", &shiftValue);
     clearInputBuffer();
-    wprintf(L"Decrypted message: %ls\n", decrypt(message, shiftValue));
+    wchar_t* decryptedMessage = decrypt(message, shiftValue);
+    if (decryptedMessage) {
+        wprintf(L"Decrypted message: %ls\n", decryptedMessage);
+        free(decryptedMessage); // Free the allocated memory
+    }
 
     wprintf(L"\n");
     wprintf(L"--------Ended Decryption------\n");
